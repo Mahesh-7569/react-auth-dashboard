@@ -1,41 +1,3 @@
-// // import { useNavigate } from "react-router-dom";
-
-// // function Header() {
-// //   const navigate = useNavigate();
-
-// //   return (
-// //     <>
-// //       <header className="top-header">
-// //         <div className="logo">ShopKart</div>
-
-// //         <div className="search-box">
-// //           <input type="text" placeholder="Search products" />
-// //           <button>🔍</button>
-// //         </div>
-
-// //         <div className="header-links">
-// //           <span onClick={() => navigate("/login")}>Login</span>
-// //           <span>Orders</span>
-// //           <span>Cart</span>
-// //         </div>
-// //         <div onClick={() => navigate("/products")}>Products</div>
-// //       </header>
-
-// //       <nav className="sub-header">
-// //         <span>All</span>
-// //         <span>Groceries</span>
-// //         <span>Mobiles</span>
-// //         <span>Fashion</span>
-// //         <span>Electronics</span>
-// //         <span>Home</span>
-// //       </nav>
-// //     </>
-// //   );
-// // }
-
-// // export default Header;
-
-
 // import { useNavigate } from "react-router-dom";
 // import "../../styles/home.css";
 
@@ -70,28 +32,27 @@
 //         >
 //           Signup
 //         </button>
+//         <button
+//             className="nav-btn product-btn"
+//             onClick={() => navigate("/products")}
+//           >
+//             Products
+//           </button>
 
-//         <div
-//           className="nav-item"
-//           onClick={() => navigate("/products")}
-//         >
-//           Products
-//         </div>
+//           <button
+//             className="nav-btn orders-btn"
+//             onClick={() => navigate("/orders")}
+//           >
+//             Orders
+//           </button>
 
-//         <div
-//           className="nav-item"
-//           onClick={() => navigate("/orders")}
-//         >
-//           Orders
-//         </div>
-
-//         <div
-//           className="cart-box"
-//           onClick={() => navigate("/cart")}
-//         >
-//           🛒 Cart
-//         </div>
-//       </div>
+//           <button
+//             className="nav-btn cart-btn"
+//             onClick={() => navigate("/cart")}
+//           >
+//             🛒 Cart
+//           </button>
+//           </div>
 //     </header>
 //   );
 // }
@@ -100,61 +61,245 @@
 
 
 
+
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "../../styles/home.css";
 
 function Header() {
   const navigate = useNavigate();
 
+  const [search, setSearch] =
+    useState("");
+
+  const [cartCount, setCartCount] =
+    useState(() => {
+      const cart =
+        JSON.parse(
+          localStorage.getItem("cart")
+        ) || [];
+
+      return cart.reduce(
+        (sum, item) =>
+          sum + (item.qty || 1),
+        0
+      );
+    });
+
+  const [username, setUsername] =
+    useState(() => {
+      const user =
+        JSON.parse(
+          localStorage.getItem("user")
+        ) || null;
+
+      return user?.name || "";
+    });
+
+  const [showUserMenu, setShowUserMenu] =
+    useState(false);
+
+  useEffect(() => {
+    const interval =
+      setInterval(() => {
+        const cart =
+          JSON.parse(
+            localStorage.getItem(
+              "cart"
+            )
+          ) || [];
+
+        const user =
+          JSON.parse(
+            localStorage.getItem(
+              "user"
+            )
+          ) || null;
+
+        const totalQty =
+          cart.reduce(
+            (sum, item) =>
+              sum +
+              (item.qty || 1),
+            0
+          );
+
+        setCartCount(totalQty);
+        setUsername(
+          user?.name || ""
+        );
+      }, 500);
+
+    return () =>
+      clearInterval(interval);
+  }, []);
+
+  const goPage = (path) => {
+    navigate(path);
+    setShowUserMenu(false);
+  };
+
+  const handleSearch = () => {
+    navigate(
+      `/products?search=${search}`
+    );
+  };
+
+  const logout = () => {
+    localStorage.removeItem(
+      "user"
+    );
+
+    setUsername("");
+    setShowUserMenu(false);
+
+    navigate("/login");
+  };
+
   return (
     <header className="top-header">
+      {/* Logo */}
       <div
         className="brand-section"
-        onClick={() => navigate("/home")}
+        onClick={() =>
+          goPage("/home")
+        }
       >
-        <span className="logo-text">My Mart</span>
+        <span className="logo-text">
+          My Mart
+        </span>
       </div>
 
+      {/* Search */}
       <div className="search-box">
-        <input placeholder="Search products..." />
-        <button>🔍</button>
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={(e) =>
+            setSearch(
+              e.target.value
+            )
+          }
+          onKeyDown={(e) =>
+            e.key === "Enter" &&
+            handleSearch()
+          }
+        />
+
+        <button
+          onClick={handleSearch}
+        >
+          🔍
+        </button>
       </div>
 
+      {/* Right Menu */}
       <div className="header-right">
-        <button
-          className="auth-btn"
-          onClick={() => navigate("/login")}
-        >
-          Login
-        </button>
+        {username ? (
+          <div className="user-menu-box">
+            <button
+              className="nav-btn user-btn"
+              onClick={() =>
+                setShowUserMenu(
+                  !showUserMenu
+                )
+              }
+            >
+              👤 {username}
+            </button>
 
-        <button
-          className="auth-btn signup-btn"
-          onClick={() => navigate("/signup")}
-        >
-          Signup
-        </button>
-        <button
-            className="nav-btn product-btn"
-            onClick={() => navigate("/products")}
-          >
-            Products
-          </button>
+            {showUserMenu && (
+              <div className="user-dropdown">
+                <p
+                  onClick={() =>
+                    goPage("/user")
+                  }
+                >
+                  My Profile
+                </p>
 
-          <button
-            className="nav-btn orders-btn"
-            onClick={() => navigate("/orders")}
-          >
-            Orders
-          </button>
+                <p
+                  onClick={() =>
+                    goPage(
+                      "/orders"
+                    )
+                  }
+                >
+                  My Orders
+                </p>
 
-          <button
-            className="nav-btn cart-btn"
-            onClick={() => navigate("/cart")}
-          >
-            🛒 Cart
-          </button>
+                <p
+                  onClick={() =>
+                    goPage("/cart")
+                  }
+                >
+                  My Cart
+                </p>
+
+                <p
+                  onClick={logout}
+                >
+                  Logout
+                </p>
+              </div>
+            )}
           </div>
+        ) : (
+          <>
+            <button
+              className="auth-btn"
+              onClick={() =>
+                navigate("/login")
+              }
+            >
+              Login
+            </button>
+
+            <button
+              className="auth-btn signup-btn"
+              onClick={() =>
+                navigate("/signup")
+              }
+            >
+              Signup
+            </button>
+          </>
+        )}
+
+        <button
+          className="nav-btn product-btn"
+          onClick={() =>
+            goPage("/products")
+          }
+        >
+          Products
+        </button>
+
+        <button
+          className="nav-btn orders-btn"
+          onClick={() =>
+            goPage("/orders")
+          }
+        >
+          Orders
+        </button>
+
+        <button
+          className="nav-btn cart-btn"
+          onClick={() =>
+            goPage("/cart")
+          }
+        >
+          🛒 Cart
+
+          {cartCount > 0 && (
+            <span className="cart-count">
+              {cartCount}
+            </span>
+          )}
+        </button>
+      </div>
     </header>
   );
 }

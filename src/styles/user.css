@@ -1,0 +1,38 @@
+.user-page {
+  min-height: 100vh;
+  background: #eaeded;
+  padding: 30px;
+}
+
+.user-card {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
+.user-card h1 {
+  margin-top: 0;
+  color: #111827;
+}
+
+.user-info p {
+  font-size: 18px;
+  margin: 16px 0;
+}
+
+@media (max-width: 768px) {
+  .user-page {
+    padding: 15px;
+  }
+
+  .user-card {
+    padding: 20px;
+  }
+
+  .user-info p {
+    font-size: 16px;
+  }
+}

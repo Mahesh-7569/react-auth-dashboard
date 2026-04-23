@@ -49,6 +49,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Products from "./pages/Products";
+import Cart from "./pages/Cart";
+import Orders from "./pages/Orders";
+import ResetPassword from "./pages/ResetPassword";
+import ForgotPassword from "./pages/ForgotPassword";
+import User from "./pages/User";
 
 function App() {
   return (
@@ -62,8 +67,13 @@ function App() {
       <Route path="/products" element={<Products />} />
 
       {/* temporary */}
-      <Route path="/orders" element={<h1>Orders Page</h1>} />
-      <Route path="/cart" element={<h1>Cart Page</h1>} />
+      <Route path="/orders" element={<Orders />} />
+      <Route path="/cart" element={<Cart />} />
+
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+
+      <Route path="/user" element={<User />} />
     </Routes>
   );
 }

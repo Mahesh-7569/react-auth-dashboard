@@ -1,0 +1,174 @@
+/* Orders Page Responsive CSS - Mobile + Tablet + Desktop */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.orders-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.orders-page h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+/* Grid */
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+
+.order-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+}
+
+.order-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.order-card h3 {
+  font-size: 22px;
+  margin-top: 12px;
+  color: #111;
+}
+
+.order-price {
+  font-size: 22px;
+  color: green;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.order-status {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 6px 14px;
+  background: #eafaf0;
+  color: #0b8f3d;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.order-date {
+  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Empty */
+
+.no-orders {
+  font-size: 24px;
+  color: #666;
+  margin-top: 30px;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .orders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .orders-page h1 {
+    font-size: 28px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .orders-page {
+    padding: 15px;
+  }
+
+  .orders-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .orders-page h1 {
+    font-size: 24px;
+  }
+
+  .order-card {
+    padding: 12px;
+  }
+
+  .order-card img {
+    height: 220px;
+  }
+
+  .order-card h3 {
+    font-size: 20px;
+  }
+
+  .order-price {
+    font-size: 20px;
+  }
+
+  .order-status {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .order-date {
+    font-size: 13px;
+  }
+
+  .no-orders {
+    font-size: 20px;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+  .orders-page h1 {
+    font-size: 22px;
+  }
+
+  .order-card img {
+    height: 180px;
+  }
+
+  .order-card h3 {
+    font-size: 18px;
+  }
+
+  .order-price {
+    font-size: 18px;
+  }
+
+  .order-status {
+    font-size: 12px;
+  }
+
+  .no-orders {
+    font-size: 18px;
+  }
+}
