@@ -1,27 +1,71 @@
-import { Routes, Route } from "react-router-dom"
-import Login from "./pages/Login"
-import Signup from "./pages/Signup"
-import Dashboard from "./pages/Dashboard"
-import PrivateRoute from "./components/PrivateRoute"
-import ForgotPassword from "./pages/ForgotPassword"
-import ResetPassword from "./pages/ResetPassword"
-import Reports from "./pages/Reports";
-import Analytics from "./pages/Analytics";
-import Users from "./pages/Users";
+// import { Routes, Route, Navigate } from "react-router-dom";
+
+// import Signup from "./pages/Signup";
+// import Login from "./pages/Login";
+// import ForgotPassword from "./pages/ForgotPassword";
+// import ResetPassword from "./pages/ResetPassword";
+// import Home from "./pages/Home";
+// import Products from "./pages/Products";
+
+// import PrivateRoute from "./components/PrivateRoute";
+
+// function App() {
+//   return (
+//     <Routes>
+//       {/* Start page */}
+//       <Route path="/" element={<Signup />} />
+
+//       {/* Auth pages */}
+//       <Route path="/signup" element={<Signup />} />
+//       <Route path="/login" element={<Login />} />
+//       <Route path="/forgot-password" element={<ForgotPassword />} />
+//       <Route path="/reset-password" element={<ResetPassword />} />
+
+//       {/* Protected Home */}
+//       <Route
+//         path="/home"
+//         element={
+//           <PrivateRoute>
+//             <Home />
+//           </PrivateRoute>
+//         }
+//       />
+
+//       {/* Fallback */}
+//       <Route path="*" element={<Navigate to="/" replace />} />
+//       <Route path="/products" element={<Products />} />
+
+//     </Routes>
+//   );
+// }
+
+// export default App;
+
+
+
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Products from "./pages/Products";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Signup />} />
+      {/* redirect root to home */}
+      <Route path="/" element={<Navigate to="/home" />} />
+
+      <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/reports" element={<Reports />} />
-      <Route path="/analytics" element={<Analytics />} />
-      <Route path="/users" element={<Users />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/products" element={<Products />} />
+
+      {/* temporary */}
+      <Route path="/orders" element={<h1>Orders Page</h1>} />
+      <Route path="/cart" element={<h1>Cart Page</h1>} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

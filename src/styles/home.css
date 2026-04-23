@@ -1,0 +1,273 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eaeded;
+}
+
+/* ===== HEADER ===== */
+.top-header {
+  background: #131921;
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  cursor: pointer;
+}
+
+.brand-text h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.brand-text span {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+/* ===== SEARCH ===== */
+.search-box {
+  flex: 1;
+  max-width: 650px;
+  display: flex;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  outline: none;
+}
+
+.search-box button {
+  padding: 10px 18px;
+  border: none;
+  background: #febd69;
+  cursor: pointer;
+}
+
+/* ===== RIGHT NAV ===== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== COMMON BUTTON STYLE (ALL SAME SIZE) ===== */
+.auth-btn,
+.nav-btn {
+  min-width: 100px;
+  height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+/* LOGIN */
+.auth-btn {
+  background: white;
+  color: black;
+}
+
+/* SIGNUP */
+.signup-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.signup-btn:hover {
+  background: #16a34a;
+}
+
+/* USER */
+.user-btn {
+  background: #8b5cf6;
+  color: white;
+}
+
+.user-btn:hover {
+  background: #7c3aed;
+}
+
+/* PRODUCTS */
+.product-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.product-btn:hover {
+  background: #2563eb;
+}
+
+/* ORDERS */
+.orders-btn {
+  background: #f97316;
+  color: white;
+}
+
+.orders-btn:hover {
+  background: #ea580c;
+}
+
+/* CART */
+.cart-btn {
+  background: #facc15;
+  color: black;
+  position: relative;
+}
+
+.cart-btn:hover {
+  background: #eab308;
+}
+
+/* CART COUNT */
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* ===== HERO ===== */
+.hero-banner {
+  background: linear-gradient(135deg, #0099ff, #00ccff);
+  color: white;
+  text-align: center;
+  padding: 60px 20px 100px;
+}
+
+.hero-banner h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.hero-banner p {
+  font-size: 18px;
+  margin: 10px 0 20px;
+}
+
+.shop-btn {
+  padding: 12px 26px;
+  background: #ffd814;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ===== GRID ===== */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 20px 30px;
+  margin-top: -60px;
+}
+
+.deal-card {
+  background: white;
+  padding: 20px;
+}
+
+.deal-card h2 {
+  font-size: 18px;
+}
+
+.deal-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.deal-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* ===== TRENDING ===== */
+.offer-row {
+  margin: 20px;
+  background: white;
+  padding: 20px;
+}
+
+.offer-products {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.offer-products img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* ===== LOGO ===== */
+.site-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+/* wrapper */
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(255,255,255,0.1);
+  padding: 12px 0;
+}
+
+/* moving text */
+.marquee-content {
+  display: inline-block;
+  animation: scrollText 20s linear infinite;
+}
+
+/* each message */
+.marquee-content span {
+  display: inline-block;
+  margin-right: 40px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+/* colors */
+.offer-red { background: #ef4444; }
+.offer-green { background: #22c55e; }
+.offer-blue { background: #3b82f6; }
+.offer-pink { background: #ec4899; }
+.offer-yellow { background: #eab308; color: black; }
+
+/* animation */
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}

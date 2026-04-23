@@ -1,9 +1,11 @@
-import { Navigate } from "react-router-dom"
+import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
-  const isLoggedIn = localStorage.getItem("isLoggedIn")
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-  return isLoggedIn ? children : <Navigate to="/Login" />
+  return isLoggedIn === "true"
+    ? children
+    : <Navigate to="/login" replace />;
 }
 
-export default PrivateRoute
+export default PrivateRoute;
