@@ -1,4 +1,4 @@
-/* Orders Page Responsive CSS - Mobile + Tablet + Desktop */
+/* Orders Page Same Laptop UI on Mobile */
 
 * {
   margin: 0;
@@ -12,6 +12,7 @@
   padding: 20px;
   background: #f2f2f2;
   font-family: Arial, sans-serif;
+  min-width: 1350px;
 }
 
 .orders-page h1 {
@@ -87,88 +88,56 @@
   margin-top: 30px;
 }
 
-/* Tablet */
+/* Mobile / Tablet Same as Laptop */
 
-@media (max-width: 992px) {
-  .orders-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 992px),
+(max-width: 768px),
+(max-width: 480px) {
+
+  body {
+    overflow-x: auto;
   }
 
-  .orders-page h1 {
-    font-size: 28px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 768px) {
   .orders-page {
-    padding: 15px;
+    min-width: 1350px;
+    padding: 20px;
   }
 
   .orders-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
   .orders-page h1 {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .order-card {
-    padding: 12px;
+    padding: 14px;
   }
 
   .order-card img {
-    height: 220px;
+    height: 190px;
   }
 
   .order-card h3 {
-    font-size: 20px;
-  }
-
-  .order-price {
-    font-size: 20px;
-  }
-
-  .order-status {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-
-  .order-date {
-    font-size: 13px;
-  }
-
-  .no-orders {
-    font-size: 20px;
-  }
-}
-
-/* Small Mobile */
-
-@media (max-width: 480px) {
-  .orders-page h1 {
     font-size: 22px;
   }
 
-  .order-card img {
-    height: 180px;
-  }
-
-  .order-card h3 {
-    font-size: 18px;
-  }
-
   .order-price {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .order-status {
-    font-size: 12px;
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+
+  .order-date {
+    font-size: 14px;
   }
 
   .no-orders {
-    font-size: 18px;
+    font-size: 24px;
   }
 }

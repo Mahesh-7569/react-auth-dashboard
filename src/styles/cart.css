@@ -1,4 +1,4 @@
-/* cart.css - Responsive Cart Page */
+/* cart.css - Same Laptop UI on Mobile */
 
 * {
   margin: 0;
@@ -117,81 +117,93 @@
   margin-top: 30px;
 }
 
-/* Tablet */
+/* Tablet keep same UI */
 
 @media (max-width: 992px) {
+  .cart-page {
+    padding: 20px;
+  }
+
   .cart-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
   .cart-page h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 }
 
-/* Mobile */
+/* Mobile same as laptop */
 
 @media (max-width: 768px) {
   .cart-page {
-    padding: 15px;
+    padding: 20px;
+    min-width: 1200px;
+    overflow-x: auto;
   }
 
   .cart-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
   .cart-page h1 {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .cart-card img {
-    height: 220px;
+    height: 190px;
   }
 
   .cart-card h3 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .cart-price {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .remove-btn,
   .place-btn {
-    font-size: 15px;
-    padding: 11px;
+    font-size: 16px;
+    padding: 12px;
   }
 
   .total-box h2 {
-    font-size: 22px;
+    font-size: 28px;
   }
 }
 
-/* Small Mobile */
+/* Small mobile same laptop */
 
 @media (max-width: 480px) {
+  .cart-page {
+    min-width: 1200px;
+    overflow-x: auto;
+  }
+
   .cart-page h1 {
-    font-size: 22px;
+    font-size: 32px;
   }
 
   .cart-card img {
-    height: 180px;
+    height: 190px;
   }
 
   .cart-card h3 {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .cart-price {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .total-box h2 {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .no-cart {
-    font-size: 18px;
+    font-size: 24px;
   }
 }

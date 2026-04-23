@@ -1,4 +1,4 @@
-/* products.css */
+/* products.css - Same Laptop UI on Mobile */
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 body {
   font-family: Arial, sans-serif;
   background: #f2f2f2;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 /* Main Page */
@@ -17,6 +17,7 @@ body {
 .products-page {
   width: 100%;
   padding: 20px;
+  min-width: 1350px;
 }
 
 /* Heading */
@@ -88,79 +89,49 @@ body {
   background: #ffbe00;
 }
 
-/* Tablet */
+/* Mobile + Tablet Same as Laptop */
 
-@media (max-width: 992px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 992px),
+(max-width: 768px),
+(max-width: 480px) {
+
+  body {
+    overflow-x: auto;
   }
 
-  .products-page h1 {
-    font-size: 30px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 768px) {
   .products-page {
-    padding: 15px;
+    min-width: 1350px;
+    padding: 20px;
   }
 
   .products-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
   .products-page h1 {
-    font-size: 26px;
+    font-size: 34px;
   }
 
   .product-card {
-    padding: 12px;
+    padding: 15px;
   }
 
   .product-card img {
-    height: 200px;
+    height: 180px;
   }
 
   .product-card h3 {
-    font-size: 20px;
-  }
-
-  .price {
-    font-size: 20px;
-  }
-
-  .product-card button,
-  .products-page button {
-    font-size: 16px;
-    padding: 11px;
-  }
-}
-
-/* Small Mobile */
-
-@media (max-width: 480px) {
-  .products-page h1 {
     font-size: 22px;
   }
 
-  .product-card img {
-    height: 170px;
-  }
-
-  .product-card h3 {
-    font-size: 18px;
-  }
-
   .price {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .product-card button,
   .products-page button {
-    font-size: 15px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 12px;
   }
 }

@@ -12,15 +12,8 @@ function User() {
         <h1>My Profile</h1>
 
         <div className="user-info">
-          <p>
-            <strong>Name:</strong>{" "}
-            {user.name || "Guest"}
-          </p>
-
-          <p>
-            <strong>Email:</strong>{" "}
-            {user.email || "-"}
-          </p>
+          <p>Name: {user.name || "Guest"}</p>
+          <p>Email: {user.email || "-"}</p>
         </div>
       </div>
     </div>
