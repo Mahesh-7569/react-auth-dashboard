@@ -89,3 +89,48 @@ body {
 .auth-box a:hover {
   text-decoration: underline;
 }
+
+/* ================= MOBILE SUPPORT ONLY ================= */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 16px;
+  }
+
+  .auth-box {
+    max-width: 380px;
+    padding: 28px;
+  }
+
+  .auth-box h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    align-items: flex-start;
+    padding: 14px;
+    padding-top: 40px;
+  }
+
+  .auth-box {
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 10px;
+  }
+
+  .auth-box h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .auth-box input,
+  .auth-box button {
+    padding: 13px;
+    font-size: 14px;
+  }
+
+  .auth-box p {
+    font-size: 13px;
+  }
+}

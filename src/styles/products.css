@@ -6,6 +6,7 @@
 
 .products-page h1 {
   margin-bottom: 20px;
+  font-size: 32px;
 }
 
 /* Filters */
@@ -13,15 +14,21 @@
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .filters input {
   padding: 10px;
   width: 250px;
+  max-width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
 }
 
 .filters select {
   padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
 }
 
 /* Grid */
@@ -41,22 +48,25 @@
 }
 
 .product-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-4px);
 }
 
 .product-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .product-card h3 {
   margin: 10px 0;
+  font-size: 18px;
 }
 
 .price {
   color: #16a34a;
   font-weight: bold;
+  margin-bottom: 6px;
 }
 
 .rating {
@@ -71,4 +81,94 @@
   background: #ffd814;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .products-page {
+    padding: 15px;
+  }
+
+  .products-page h1 {
+    font-size: 26px;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .product-card img {
+    height: 150px;
+  }
+
+  .product-card h3 {
+    font-size: 16px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    height: 190px;
+  }
+
+  .products-page h1 {
+    font-size: 22px;
+  }
+}
+
+/* ================= EXTRA SMALL MOBILE SUPPORT ================= */
+@media (max-width: 360px) {
+  .products-page {
+    padding: 12px;
+  }
+
+  .products-page h1 {
+    font-size: 20px;
+  }
+
+  .product-card {
+    padding: 12px;
+  }
+
+  .product-card h3 {
+    font-size: 15px;
+  }
+
+  .price,
+  .rating {
+    font-size: 13px;
+  }
+
+  .product-card button {
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  .product-card img {
+    height: 160px;
+  }
 }
